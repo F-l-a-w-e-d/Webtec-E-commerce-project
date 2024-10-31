@@ -1,5 +1,13 @@
 {
     "products": [
-        
+         {
+            "id": 1,
+            "name": "Pistol",
+            "description": "A good item",
+            "price": 100,
+            "discount": 0.10,
+            "rarity": "common",
+            "image": ""
+         }
     ]
 }
