@@ -8,6 +8,16 @@
             "discount": 0.10,
             "rarity": "common",
             "image": ""
+         },
+
+         {
+            "id": 2,
+            "name": "Hatdog",
+            "description": "A good item",
+            "price": 100,
+            "discount": 0.10,
+            "rarity": "common",
+            "image": ""
          }
     ]
 }
