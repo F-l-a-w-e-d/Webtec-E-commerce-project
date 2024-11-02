@@ -4,15 +4,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="/Content/Js/Admin/ProductList.js"></script>
-    <link rel="stylesheet" href="/Content/Css/Admin/ProductManagement.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/Content/Css/Admin/ProductList.css">
     <title>Product Creation</title>
 </head>
-<body>
-    <button id="createProduct">Create Product</button>
-    <div class="whole-container">
-        <div id="product-list-container">
+<body class="bg-dark">
+  <div class="container mt-4">
+    <div class="d-flex justify-content-between mb-3">
+        <button id="createProduct" class="btn btn-primary">Create Product</button>
+        <div class="d-flex">
+                <select name="rarity" id="rarity" class="form-control mr-2">
+                    <option value="">Rarity: All</option>
+                    <option value="Common">Common</option>
+                    <option value="Uncommon">Uncommon</option>
+                    <option value="Rare">Rare</option>
+                    <option value="Mythical">Mythical</option>
+                    <option value="Ancient">Ancient</option>
+                    <option value="Immortal">Immortal</option>
+                </select>
 
+                <select name="category" id="category" class="form-control mr-2">
+                    <option value="">Category: All</option>
+                    <option value="Melee">Melee</option>
+                    <option value="Pistol">Pistol</option>
+                    <option value="Shotgun">Shotgun</option>
+                    <option value="SMG">SMG</option>
+                    <option value="Assault Rifle">Assault Rifle</option>
+                    <option value="Sniper Rifle">Sniper Rifle</option>
+                    <option value="Machine Gun">Machine Gun</option>
+                </select>
+            <input type="text" id="search" class="form-control mr-2" placeholder="Search...">
+            <button id="btnSearch" class="btn btn-secondary">Search</button>
         </div>
     </div>
+    <div class="whole-container">
+        <label class="w-100 text-center text-white h4" id="info"></label>
+        <br/><br/>
+        <div id="product-list-container" class="row">
+        </div>
+    </div>
+</div>
 </body>
 </html>

@@ -1,3 +1,74 @@
 {
-  "products": []
+  "products": [
+    {
+      "name": "Glock",
+      "description": "Pistol",
+      "price": 79.99,
+      "discount": 0.1,
+      "rarity": "Common",
+      "category": "Pistol",
+      "image": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf1P_HcjZ979S5mZCOhcj4OrzZgiVTucMhi7_F9Nul0Qy3_BFuMjzzdo_AdAA7YV3Y-1C3yOi8gJG8vpTK1zI97XhoCFF2/512fx384f",
+      "id": "fc9c"
+    },
+    {
+      "id": "cd9c",
+      "name": "AWP",
+      "description": "Real",
+      "price": 199.69,
+      "discount": 0.05,
+      "rarity": "Uncommon",
+      "category": "Sniper Rifle",
+      "image": ""
+    },
+    {
+      "id": "afd5",
+      "name": "S-PAS 12",
+      "description": "Shotty shotty",
+      "price": 149.99,
+      "discount": 0.1,
+      "rarity": "Uncommon",
+      "category": "Shotgun",
+      "image": ""
+    },
+    {
+      "name": "M4A1",
+      "description": "Goody",
+      "price": 123,
+      "discount": null,
+      "rarity": "Common",
+      "category": "Assault Rifle",
+      "image": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO7wIHahMjiMqvehHxQ_sBOhuDG_Zi7jlfhr0tsZDqhdoSRcQY9Y1iE-FHvwrjm0Ja6vpnAzXUws3Ir5S2Pmgv3308UVT93Iw/512fx384f",
+      "id": "5c5a"
+    },
+    {
+      "id": "7a31",
+      "name": "Shadow Daggers",
+      "description": "Vanilla",
+      "price": 10.99,
+      "discount": null,
+      "rarity": "Common",
+      "category": "Melee",
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/weapons/base_weapons/weapon_knife_push.13f409f23e653107c90711e5ab258b52b187ff6a.png"
+    },
+    {
+      "id": "0e44",
+      "name": "Asiimov",
+      "description": "Operation Phoenix Weapon CaseOperation Phoenix Weapon Case",
+      "price": 600,
+      "discount": null,
+      "rarity": "Uncommon",
+      "category": "Sniper Rifle",
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_asimov_light_large.32d9045f8a2bcd13ca18390cc9fd82026e7195ab.png"
+    },
+    {
+      "name": "glock 179",
+      "description": "asd",
+      "price": 1,
+      "discount": null,
+      "rarity": "Uncommon",
+      "category": "Shotgun",
+      "image": "",
+      "id": "ac46"
+    }
+  ]
 }

@@ -10,7 +10,8 @@ $(function () {
         $("#price").val(d.price);
         $("#discount").val(d.discount);
         $("#rarity").val(d.rarity);
-        //$("#image").val(d.image);
+        $("#category").val(d.category)
+        $("#image").val(d.image)
     });
    
    
@@ -20,13 +21,19 @@ $(function () {
 
         let isError = false;
         let product = {
-            name: $("#name").val(),
-            description: $("#description").val(),
+            name: $("#name").val().trim(),
+            description: $("#description").val().trim(),
             price: parseFloat($("#price").val()),
             discount: parseFloat($("#discount").val()),
             rarity: $("#rarity").val(),
-            //image: json.stringify($("#image")[0].files[0])
+            category: $("#category").val(),
+            image: $("#image").val()
         };
+
+        if (product.name === "") {
+            $("#errorMessage").append("<p>Please provide a name.</p>");
+            isError = true;
+        }
 
         if (product.price <= 0) {
             $("#errorMessage").append("<p>Price should not be less than or equal to 0.</p>");
@@ -38,11 +45,24 @@ $(function () {
             isError = true;
         }
 
-        if (isError) {
-            return;
-        }
+        isValidImageUrl(product.image, function(isValid) {
+            if (!isValid && product.image != "") {
+                $("#errorMessage").append("<p>Invalid image link.</p>");
+                isError = true;
+            }
 
-        Update(product, id);
+            if (isError) {
+                $("#errorMessage").removeClass("d-none");
+                return;
+            }
+            else {  
+                Update(product, id);
+            }
+        });
+    });
+
+    $("#cancelBtn").click(function() {
+        window.location.href = "/Content/Pages/Admin/ProductList.html"
     });
 });
 
@@ -53,6 +73,24 @@ function Update(product, id) {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(product)
-      }).then(r => r.json()).then(d => alert("Data updated successfully!"))
-      .catch(e => alert(e));
+      }).then(r => {
+        if (r.ok) {
+            window.location.href = "/Content/Pages/Admin/ProductList.html";
+            alert("Product updated successfully!");
+        }
+        else {
+            alert("Product update failed.");
+        }
+      }).catch(e => alert(e));
+} 
+
+function isValidImageUrl(url, callback) {
+    const img = new Image();
+    img.onload = function() {
+        callback(true);
+    };
+    img.onerror = function() {
+        callback(false);
+    };
+    img.src = url;
 }
