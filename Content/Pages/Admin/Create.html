@@ -15,59 +15,60 @@
 
         <div class="manage-container">
             <form id="addProduct" class="border p-4 rounded bg-white">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" class="form-control" required>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+        
+                    <div class="form-group col-md-6">
+                        <label for="price">Price</label>
+                        <input type="number" id="price" class="form-control" required step="0.01">
+                    </div>
+        
+                    <div class="form-group col-md-6">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" class="form-control">
+                    </div>
+        
+                    <div class="form-group col-md-6">
+                        <label for="discount">Discount</label>
+                        <input type="number" id="discount" class="form-control" step="0.01">
+                    </div>
+        
+                    <div class="form-group col-md-6">
+                        <label for="rarity">Rarity</label>
+                        <select name="rarity" id="rarity" class="form-control" required>
+                            <option value="">---Select Rarity---</option>
+                            <option value="Common">Common</option>
+                            <option value="Uncommon">Uncommon</option>
+                            <option value="Rare">Rare</option>
+                            <option value="Mythical">Mythical</option>
+                            <option value="Ancient">Ancient</option>
+                            <option value="Immortal">Immortal</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-group col-md-6">
+                        <label for="category">Category</label>
+                        <select name="category" id="category" class="form-control" required>
+                            <option value="">---Select Category---</option>
+                            <option value="Melee">Melee</option>
+                            <option value="Pistol">Pistol</option>
+                            <option value="Shotgun">Shotgun</option>
+                            <option value="SMG">SMG</option>
+                            <option value="Assault Rifle">Assault Rifle</option>
+                            <option value="Sniper Rifle">Sniper Rifle</option>
+                            <option value="Machine Gun">Machine Gun</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-group col-md-12">
+                        <label for="image">Image (Provide a link)</label>
+                        <input type="text" id="image" class="form-control">
+                    </div>
                 </div>
-
-                <div class="form-group">
-                    <label for="description">Description</label>
-                    <input type="text" id="description" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="price">Price</label>
-                    <input type="number" id="price" class="form-control" required step="0.01">
-                </div>
-
-                <div class="form-group">
-                    <label for="discount">Discount</label>
-                    <input type="number" id="discount" class="form-control" step="0.01">
-                </div>
-
-                <div class="form-group">
-                    <label for="rarity">Rarity</label>
-                    <select name="rarity" id="rarity" class="form-control" required>
-                        <option value="">---Select Rarity---</option>
-                        <option value="Common">Common</option>
-                        <option value="Uncommon">Uncommon</option>
-                        <option value="Rare">Rare</option>
-                        <option value="Mythical">Mythical</option>
-                        <option value="Ancient">Ancient</option>
-                        <option value="Immortal">Immortal</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="category">Category</label>
-                    <select name="category" id="category" class="form-control" required>
-                        <option value="">---Select category---</option>
-                        <option value="Melee">Melee</option>
-                        <option value="Pistol">Pistol</option>
-                        <option value="Shotgun">Shotgun</option>
-                        <option value="SMG">SMG</option>
-                        <option value="Assault Rifle">Assault Rifle</option>
-                        <option value="Sniper Rifle">Sniper Rifle</option>
-                        <option value="Machine Gun">Machine Gun</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="image">Image (Provide a link)</label>
-                    <input type="text" id="image" class="form-control">
-                </div>
-
-                <button type="submit" class="btn btn-primary btn-block">Create Product</button>
+                <button type="submit" class="btn btn-primary text-align-center btn-block mt-3 col-md-2">Create Product</button>
             </form>
         </div>
     </div>

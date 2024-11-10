@@ -10,11 +10,18 @@
     <title>Product Creation</title>
 </head>
 <body class="bg-dark">
+        <header class="d-flex justify-content-start py-3">
+          <ul class="nav nav-pills ml-5">
+            <li class="nav-item"><a href="/Content/Pages/Admin/home.html" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item"><a class="nav-link active">Products</a></li>
+          </ul>
+        </header>
+        
   <div class="container mt-4">
     <div class="d-flex justify-content-between mb-3">
-        <button id="createProduct" class="btn btn-primary">Create Product</button>
+            <button id="createProduct" class="btn btn-success btn-creation">Create Product</button>
         <div class="d-flex">
-                <select name="rarity" id="rarity" class="form-control mr-2">
+                <select name="rarity" id="rarity" class="form-control mr-2 filter">
                     <option value="">Rarity: All</option>
                     <option value="Common">Common</option>
                     <option value="Uncommon">Uncommon</option>
@@ -24,7 +31,7 @@
                     <option value="Immortal">Immortal</option>
                 </select>
 
-                <select name="category" id="category" class="form-control mr-2">
+                <select name="category" id="category" class="form-control mr-2 filter">
                     <option value="">Category: All</option>
                     <option value="Melee">Melee</option>
                     <option value="Pistol">Pistol</option>
@@ -34,11 +41,11 @@
                     <option value="Sniper Rifle">Sniper Rifle</option>
                     <option value="Machine Gun">Machine Gun</option>
                 </select>
-            <input type="text" id="search" class="form-control mr-2" placeholder="Search...">
+            <input type="text" id="search" class="form-control mr-2 filter" placeholder="Search...">
             <button id="btnSearch" class="btn btn-secondary">Search</button>
         </div>
     </div>
-    <div class="whole-container">
+    <div class="whole-container mt-4">
         <label class="w-100 text-center text-white h4" id="info"></label>
         <br/><br/>
         <div id="product-list-container" class="row">

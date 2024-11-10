@@ -51,7 +51,9 @@ function LoadProducts(search = "", rarity = "", category = "") {
                             <h6 class="card-text">${d["category"]}</h6>
                             <p class="card-text">${d["description"]}</p>
                             <ul class="list-unstyled">
-                                <li>Price: $${d["price"]}</li>
+                                <li>Original Price: $${d["price"]}</li>
+                                <li>Discounted Price: $${d["price"] - (d["price"] * d["discount"])}</li>
+                                <li>Discount: ${d["discount"] * 100}%</li>
                                 <li>Rarity: ${d["rarity"]}</li>
                             </ul>
                         </div>

@@ -4,31 +4,31 @@
       "name": "Glock",
       "description": "Pistol",
       "price": 79.99,
-      "discount": 0.1,
+      "discount": 0.5,
       "rarity": "Common",
       "category": "Pistol",
       "image": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf1P_HcjZ979S5mZCOhcj4OrzZgiVTucMhi7_F9Nul0Qy3_BFuMjzzdo_AdAA7YV3Y-1C3yOi8gJG8vpTK1zI97XhoCFF2/512fx384f",
       "id": "fc9c"
     },
     {
-      "id": "cd9c",
       "name": "AWP",
       "description": "Real",
       "price": 199.69,
       "discount": 0.05,
       "rarity": "Uncommon",
       "category": "Sniper Rifle",
-      "image": ""
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_asimov_light_large.32d9045f8a2bcd13ca18390cc9fd82026e7195ab.png",
+      "id": "cd9c"
     },
     {
-      "id": "afd5",
-      "name": "S-PAS 12",
-      "description": "Shotty shotty",
+      "name": "1911",
+      "description": "9mm bullet with white skin",
       "price": 149.99,
       "discount": 0.1,
       "rarity": "Uncommon",
       "category": "Shotgun",
-      "image": ""
+      "image": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf1P_HcjZ979S5mZCOhcj4OrzZgiVTucMhi7_F9Nul0Qy3_BFuMjzzdo_AdAA7YV3Y-1C3yOi8gJG8vpTK1zI97XhoCFF2/512fx384f",
+      "id": "afd5"
     },
     {
       "name": "M4A1",
@@ -61,14 +61,14 @@
       "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_asimov_light_large.32d9045f8a2bcd13ca18390cc9fd82026e7195ab.png"
     },
     {
-      "name": "glock 179",
-      "description": "asd",
-      "price": 1,
-      "discount": null,
-      "rarity": "Uncommon",
-      "category": "Shotgun",
-      "image": "",
-      "id": "ac46"
+      "name": "e",
+      "description": "A test for a new thing yep yep",
+      "price": 2,
+      "discount": 0.3,
+      "rarity": "Rare",
+      "category": "Assault Rifle",
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_asimov_light_large.32d9045f8a2bcd13ca18390cc9fd82026e7195ab.png",
+      "id": "c285"
     }
   ]
 }
