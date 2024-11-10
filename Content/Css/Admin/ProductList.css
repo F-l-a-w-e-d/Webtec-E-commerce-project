@@ -4,8 +4,26 @@ body {
 }
 
 #product-list-container img {
-    width: 100%;
+    width: 80%;
     height: auto; 
+    display: block;
+    margin: auto;
     max-height: 200px;
     object-fit: cover;
+}
+
+.btn-creation {
+    margin-right: 10px;
+}
+
+.filter {
+    margin-top: 20px;
+}
+
+header {
+    background-color: rgb(27, 24, 24);
+}
+
+.btn {
+    margin-top: 15px;
 }
