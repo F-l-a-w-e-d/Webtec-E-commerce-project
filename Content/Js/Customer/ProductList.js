@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
     LoadProducts();
 
     $("#btnSearch").click(function() {
@@ -9,10 +9,6 @@ $(function() {
     $("#search").change(function() {
         $("#product-list-container").html("");
         LoadProducts($(this).val(), $("#rarity").val(), $("#category").val());
-    });
-   
-    $("#createProduct").click(function() {
-        window.location.href = "Create.html";
     });
 
     $("#rarity").change(function() {
@@ -25,7 +21,7 @@ $(function() {
         LoadProducts($("#search").val(), $("#rarity").val(), $("#category").val());
     })
 });
-        
+
 function LoadProducts(search = "", rarity = "", category = "") {
     fetch("http://localhost:3000/products").then(response => response.json()).then(data => {
         let infoHtml = data.length == 0 ? "No products found." : "List of product(s)";
@@ -40,44 +36,34 @@ function LoadProducts(search = "", rarity = "", category = "") {
                     return;
                 }
 
+                let priceHtml = `<span class="price-tag">$${(d["price"] - (d["price"] * d["discount"])).toFixed(2)}</span> `;
+                    priceHtml += d["discount"] != null ? `<span style="color:rgba(255, 0, 0, 0.445);">$${d["price"]}</span>` : "";
+
                 let image = d.image != "" ? d.image : "/Content/images/Admin/placeholder.png";
                 let id = "btn-" + d.id;
             $("#product-list-container").append(`
-                <div class="col-md-4 mb-4">
+                <div class="col-md-4 mb-4 r-${d["rarity"]} rarity">
                     <div class="card h-100">
-                        <div class="card-body">
+                        <div class="card-body" id="view-${id}">
                             <h5 class="card-title">${d["name"]}</h5>
-                            <img src="${image}" alt="${d.name}">
+                             <div class="img-wrapper">
+                                <img src="${image}" alt="${d.name}">
+                                <div class="sold-image ${d["quantity"] == 0 ? 'is-sold-out' : ''}"></div>
+                             </div>
                             <h6 class="card-text">${d["category"]}</h6>
                             <p class="card-text">${d["description"]}</p>
                             <ul class="list-unstyled">
-                                <li>Original Price: $${d["price"]}</li>
-                                <li>Discounted Price: $${(d["price"] - (d["price"] * d["discount"])).toFixed(2)}</li>
-                                <li>Discount: ${d["discount"] * 100}%</li>
-                                <li>Rarity: ${d["rarity"]}</li>
-                                <li>Quantity: ${d["quantity"]}</li>
-                                <li>Sold: ${d["sold"]}</li>
+                                <li>Price: ${priceHtml}</li>
+                                <br>
+                                <li>${d["sold"]} Sold(s)</li>
                             </ul>
-                        </div>
-                        <div class="card-footer text-right">
-                            <button id="up-${id}" class="btn btn-sm btn-info">Update</button>
-                            <button id="del-${id}" class="btn btn-sm btn-danger">Delete</button>
                         </div>
                     </div>
                 </div>
             `);
 
-            $("#up-" + id).click(function () {
-                window.location.href = "Update.html?id=" + d.id;
-            });
-
-            $("#del-" + id).click(function () {
-                if (confirm("Are you sure you want to delete this product?")) {
-                    fetch("http://localhost:3000/products/" + d.id, {
-                        method: "DELETE",
-                    }).then(() => alert("Data deleted successfully."))
-                    .catch(e => alert("Error: " + e));
-                }
+            $("#view-" + id).click(function () {
+                window.location.href = "ViewProduct.html?id=" + d.id;
             });
          }
         });

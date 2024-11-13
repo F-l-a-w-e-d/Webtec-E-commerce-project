@@ -11,7 +11,9 @@ $(function () {
             discount: parseFloat($("#discount").val()),
             rarity: $("#rarity").val(),
             category: $("#category").val(),
-            image: $("#image").val()
+            image: $("#image").val(),
+            quantity: parseInt($("#quantity").val()),
+            sold: 0
         };
 
         if (product.name === "") {

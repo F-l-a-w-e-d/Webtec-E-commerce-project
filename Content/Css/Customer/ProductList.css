@@ -1,0 +1,85 @@
+#product-list-container img {
+    width: 80%;
+    height: 200px; 
+    display: block;
+    margin: auto;
+    max-height: 200px;
+    object-fit: contain;
+}
+
+.price-tag {
+    background-color: green;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.rarity div {
+    transition: 0.3s;
+    border-radius: 20px;
+}
+
+.r-Common:hover .card {
+    transition: 0.5s;
+    box-shadow: 0 0 20px rgb(155, 155, 155);
+}
+
+.r-Uncommon:hover .card {
+    transition: 0.5s;
+    box-shadow: 0 0 20px green;
+}
+
+.r-Rare:hover .card {
+    transition: 0.5s;
+    box-shadow: 0 0 20px rgb(0, 23, 154);
+}
+
+.r-Mythical:hover .card {
+    transition: 0.5s;
+    box-shadow: 0 0 20px purple;
+}
+
+.r-Ancient:hover .card {
+    transition: 0.5s;
+    box-shadow: 0 0 20px rgb(190, 123, 0);
+}
+
+.r-Immortal:hover .card {
+    transition: 0.5s;
+    box-shadow: 0 0 20px rgb(176, 0, 0);
+}
+
+.card {
+    border-radius: 20px !important; 
+}
+
+.sold-image {
+    position: absolute;
+    top: -10px;
+    left: 5px;
+    background-image: url('/Content/images/Customer/sold-out.png');
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+.is-sold-out {
+    display: block !important;
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+@media (max-width: 765px) {
+    .sold-image {
+        position: absolute;
+        top: -30px;
+        left: 35px;
+        background-image: url('/Content/images/Customer/sold-out.png');
+        background-size: cover;
+        width: 80%;
+        height: 100%;
+    }
+}
