@@ -10,8 +10,10 @@ $(function () {
         $("#price").val(d.price);
         $("#discount").val(d.discount);
         $("#rarity").val(d.rarity);
-        $("#category").val(d.category)
-        $("#image").val(d.image)
+        $("#category").val(d.category);
+        $("#image").val(d.image);
+        $("#quantity").val(d.quantity);
+        $("#sold").val(d.sold);
     });
    
    
@@ -27,7 +29,9 @@ $(function () {
             discount: parseFloat($("#discount").val()),
             rarity: $("#rarity").val(),
             category: $("#category").val(),
-            image: $("#image").val()
+            image: $("#image").val(),
+            quantity: parseInt($("#quantity").val()),
+            sold: parseInt($("#sold").val())
         };
 
         if (product.name === "") {
