@@ -1,0 +1,11 @@
+TASKS TO DO:
+Admin:
+
+    - Add image viewer on update
+            * If image is unavailable --> Placeholder image
+    - Add Home Contents to Admin
+    - Add user on Admin?
+
+Customer:
+    - Add to cart:
+        * If item existed on cart and want to add again, it will add on existing cart.

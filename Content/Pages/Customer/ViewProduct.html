@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="\Content/Js/Customer/ViewProduct.js"></script>
+    <link rel="stylesheet" href="/Content/Css/Customer/ProductView.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <title>Product Details</title>
+</head>
+<body>
+    <div class="container">
+        <div id="product_detail">
+            <div class="container my-5 card p-5">
+                <div class="row">
+                    <input type="hidden" id="prodId">
+                    <div class="col-md-6">
+                        <img id="image" class="img-fluid rounded">
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="display-4" id="name"></h2>
+                        <p class="text-muted" id="category"></p>
+                        <p class="lead" id="desc"></p>
+                        <h4 class="text-primary" id="price"></h4>
+                        
+                        <div class="mt-4">
+                            <p id="rarity"><strong>Rarity:</strong></p>
+                            <p id="quantity"><strong>Available Quantity:</strong></p>
+                            <p id="sold"><strong>Sold:</strong></p>
+                        </div>
+
+                        <p class="text-muted">Quantity:</p>
+                        <div class="quantity-section input-group">
+                            <button class="btn btn-secondary" id="subQty">-</button>
+                            <input class="form-control col-lg-3 text-center" value="1" type="text" id="prodQty">
+                            <button class="btn btn-secondary" id="addQty">+</button>
+                        </div>
+                        <h5 class="pt-3" >Total: <strong id="total"></strong></h5>
+        
+                        <button class="btn btn-success btn-lg mt-3" id="addCart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="more_product" class="row">
+
+        </div>
+    </div>
+</body>
+</html>

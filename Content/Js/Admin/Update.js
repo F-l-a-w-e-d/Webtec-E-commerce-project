@@ -30,8 +30,9 @@ $(function () {
             rarity: $("#rarity").val(),
             category: $("#category").val(),
             image: $("#image").val(),
-            quantity: parseInt($("#quantity").val()),
-            sold: parseInt($("#sold").val())
+            quantity: parseInt($("#quantity").val()) || 0,
+            sold: parseInt($("#sold").val()),
+            discountedPrice: null
         };
 
         if (product.name === "") {
@@ -60,6 +61,7 @@ $(function () {
                 return;
             }
             else {  
+                product.discountedPrice = product.discount != null ? parseFloat((product.price - (product.price * product.discount)).toFixed(2)) : null;
                 Update(product, id);
             }
         });
