@@ -1,6 +1,6 @@
-#product-list-container img {
-    width: 80%;
-    height: 200px; 
+.img-wrapper img {
+    width: 70%;
+    height: 100px; 
     display: block;
     margin: auto;
     max-height: 200px;
@@ -61,7 +61,7 @@
     background-image: url('/Content/images/Customer/sold-out.png');
     background-size: cover;
     width: 100%;
-    height: 100%;
+    height: 120%;
     display: none;
 }
 
@@ -73,14 +73,25 @@
     position: relative;
 }
 
+#subQty {
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    padding: 2px 15px;
+}
+
+#addQty {
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+}
+
 @media (max-width: 765px) {
     .sold-image {
         position: absolute;
         top: -30px;
-        left: 35px;
+        left: 100px;
         background-image: url('/Content/images/Customer/sold-out.png');
         background-size: cover;
-        width: 80%;
-        height: 100%;
+        width: 60%;
+        height: 150px;
     }
 }

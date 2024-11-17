@@ -36,8 +36,8 @@ function LoadProducts(search = "", rarity = "", category = "") {
                     return;
                 }
 
-                let priceHtml = `<span class="price-tag">$${(d["price"] - (d["price"] * d["discount"])).toFixed(2)}</span> `;
-                    priceHtml += d["discount"] != null ? `<span style="color:rgba(255, 0, 0, 0.445);">$${d["price"]}</span>` : "";
+                let priceHtml = `<span class="price-tag">$${d["discountedPrice"] || d["price"]}</span> `;
+                    priceHtml += d["discount"] != null ? `<span style="color:red; font-size:17px;"><del>$${d["price"]}</del></span>` : "";
 
                 let image = d.image != "" ? d.image : "/Content/images/Admin/placeholder.png";
                 let id = "btn-" + d.id;

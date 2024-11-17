@@ -52,7 +52,7 @@ function LoadProducts(search = "", rarity = "", category = "") {
                             <p class="card-text">${d["description"]}</p>
                             <ul class="list-unstyled">
                                 <li>Original Price: $${d["price"]}</li>
-                                <li>Discounted Price: $${(d["price"] - (d["price"] * d["discount"])).toFixed(2)}</li>
+                                <li>Discounted Price: ${d["discountedPrice"] == null ? "No discount" : "$" + d["discountedPrice"]}</li>
                                 <li>Discount: ${d["discount"] * 100}%</li>
                                 <li>Rarity: ${d["rarity"]}</li>
                                 <li>Quantity: ${d["quantity"]}</li>

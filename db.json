@@ -8,80 +8,87 @@
       "rarity": "Common",
       "category": "Pistol",
       "image": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf1P_HcjZ979S5mZCOhcj4OrzZgiVTucMhi7_F9Nul0Qy3_BFuMjzzdo_AdAA7YV3Y-1C3yOi8gJG8vpTK1zI97XhoCFF2/512fx384f",
-      "quantity": "4",
+      "quantity": 4,
       "sold": 2,
+      "discountedPrice": 39.99,
       "id": "fc9c"
     },
     {
       "name": "AWP",
       "description": "Real",
       "price": 199.69,
-      "quantity": 0,
-      "sold": 0,
       "discount": 0.05,
       "rarity": "Uncommon",
       "category": "Sniper Rifle",
       "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_asimov_light_large.32d9045f8a2bcd13ca18390cc9fd82026e7195ab.png",
+      "quantity": 2,
+      "sold": 0,
+      "discountedPrice": 189.71,
       "id": "cd9c"
     },
     {
       "name": "XM1014",
       "description": "gauge shotgun",
       "price": 149.99,
-      "quantity": 0,
-      "sold": 0,
       "discount": 0.1,
       "rarity": "Immortal",
       "category": "Shotgun",
       "image": "https://stash.clash.gg/storage/img/skin_sideview/s508.png?id=9a99922d1c40b59a43cdfd814824e986",
+      "quantity": 0,
+      "sold": 0,
+      "discountedPrice": 134.99,
       "id": "afd5"
     },
     {
       "name": "M4A1",
       "description": "Goody",
       "price": 123,
-      "quantity": 0,
-      "sold": 0,
       "discount": null,
       "rarity": "Rare",
       "category": "Assault Rifle",
       "image": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgpou-6kejhz2v_Nfz5H_uO7wIHahMjiMqvehHxQ_sBOhuDG_Zi7jlfhr0tsZDqhdoSRcQY9Y1iE-FHvwrjm0Ja6vpnAzXUws3Ir5S2Pmgv3308UVT93Iw/512fx384f",
+      "quantity": 0,
+      "sold": 0,
+      "discountedPrice": null,
       "id": "5c5a"
     },
     {
       "name": "Shadow Daggers",
       "description": "Vanilla",
       "price": 10.99,
-      "quantity": 0,
-      "sold": 0,
       "discount": null,
       "rarity": "Mythical",
       "category": "Melee",
       "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/weapons/base_weapons/weapon_knife_push.13f409f23e653107c90711e5ab258b52b187ff6a.png",
+      "quantity": 0,
+      "sold": 0,
+      "discountedPrice": null,
       "id": "7a31"
     },
     {
       "name": "Asiimov",
       "description": "Operation Phoenix Weapon CaseOperation Phoenix Weapon Case",
       "price": 600,
-      "quantity": 0,
-      "sold": 0,
       "discount": null,
       "rarity": "Ancient",
       "category": "Sniper Rifle",
       "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_asimov_light_large.32d9045f8a2bcd13ca18390cc9fd82026e7195ab.png",
+      "quantity": 0,
+      "sold": 0,
+      "discountedPrice": null,
       "id": "0e44"
     },
     {
       "name": "Wallpaper",
       "description": "A test for a new thing yep yep",
       "price": 2,
-      "quantity": 0,
-      "sold": 0,
       "discount": 0.3,
       "rarity": "Rare",
       "category": "Assault Rifle",
       "image": "https://img.freepik.com/free-photo/view-powerful-3d-weapon_23-2150888837.jpg?t=st=1731218373~exp=1731221973~hmac=48c7a9f4153dcbdee64501b7843e704152eb1beecf98c8fb7bd1fe6438343e78&w=1060",
+      "quantity": 0,
+      "sold": 0,
+      "discountedPrice": 1.4,
       "id": "c285"
     },
     {
@@ -91,10 +98,25 @@
       "discount": 0.2,
       "rarity": "Ancient",
       "category": "Pistol",
-      "image": "",
+      "image": "https://stash.clash.gg/storage/img/skin_sideview/s1052.png?id=ef5b493b2684258c74e10eabe1b9f5af",
       "quantity": 2,
       "sold": 0,
+      "discountedPrice": 0.8,
       "id": "27ba"
+    }
+  ],
+  "carts": [
+    {
+      "id": "0d1e",
+      "productId": "cd9c",
+      "quantity": 1,
+      "total": 189
+    },
+    {
+      "id": "ac94",
+      "productId": "fc9c",
+      "quantity": 4,
+      "total": 159
     }
   ]
 }
