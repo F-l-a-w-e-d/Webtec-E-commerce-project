@@ -3,6 +3,8 @@ const id = urlParams.get('id');
 
 let actualPrice = 0;
 let prodQuantity = 1;
+let existOnCart = false;
+let totalQuantity = 0;
 
 $(function() {
     let products = [];
@@ -15,8 +17,16 @@ $(function() {
                 let priceHtml = `${d.discountedPrice || d.price}`;
                     priceHtml += d["discount"] != null ? `<span class="pl-2" style="color:red; font-size:17px;"><del>$${d.price}</span>` : '';
                     
-                actualPrice = d.discount != null ? d.discountedPrice : d.price;
+                if (d.quantity == 0) {
+                    $("#addCart").attr('disabled', true);
+                    $("#addCart").addClass('btn-sold-out');
+                    $("#quantitySection").hide();
+                    $(".sold-image-detail").addClass('is-sold-out');
+                }
 
+                actualPrice = d.discount != null ? d.discountedPrice : d.price;
+                totalQuantity = d.quantity;
+               
                 $("#prodId").val(d.id);
                 $("#image").attr("src", image);
                 $("#image").attr("alt", d.name);
@@ -28,9 +38,18 @@ $(function() {
                 $("#quantity").append(` ${d.quantity}`);
                 $("#sold").append(` ${d.sold}`);
                 $("#total").text("$" + actualPrice);
+                $("title").text(d.name + " Details");
             }
             else {
                 products.push(d);
+            }
+        });
+
+        fetch("http://localhost:3000/carts").then(r => r.json()).then(data => {
+           for (let i of data) {
+                if (i.productId == $("#prodId").val()) {
+                    existOnCart = true;
+                }
             }
         });
 
@@ -48,7 +67,7 @@ $(function() {
                             <h5 class="card-title">${d["name"]}</h5>
                              <div class="img-wrapper">
                                 <img class="img-fluid" src="${image}" alt="${d.name}">
-                                <div class="sold-image ${d["quantity"] == 0 ? 'is-sold-out' : ''}"></div>
+                                <div class="img-sold sold-image ${d["quantity"] == 0 ? 'is-sold-out' : ''}"></div>
                              </div>
                             <h6 class="card-text">${d["category"]}</h6>
                             <p class="card-text">${d["description"]}</p>
@@ -81,6 +100,13 @@ $(function() {
         $("#total").text(calcTotal());
     });
 
+    $("#prodQty").change(function() {
+        if (prodQuantity > totalQuantity) {
+            $(this).val(0);
+            $(this).trigger('input');
+        }
+    });
+
     $("#subQty").click(function() {
         if (prodQuantity != 1) {
             prodQuantity--;
@@ -90,9 +116,11 @@ $(function() {
     });
 
     $("#addQty").click(function() {
-        prodQuantity++;
-        $("#prodQty").val(prodQuantity);
-        $("#total").text(calcTotal());
+        if (prodQuantity < totalQuantity) {
+            prodQuantity++;
+            $("#prodQty").val(prodQuantity);
+            $("#total").text(calcTotal());
+        }
     });
 
     $("#addCart").click(function() {
@@ -101,24 +129,65 @@ $(function() {
             quantity: parseInt($("#prodQty").val()),
             total: parseFloat(calcTotal().replace('$', ''))
         };
-    
-        fetch('http://localhost:3000/carts', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(cartDetails)
-        }).then(r => {
-            if (r.ok) {
-                alert('Added to cart successfully.');
-            }
-            else {
-                alert('Failed to add to cart.');
-            }
-        });
+
+        if (existOnCart) {
+            updateExistingCart(cartDetails);
+        }
+        else {
+            addToCart(cartDetails);
+        }
     });
 })
 
 function calcTotal() {
     return "$" + (actualPrice * prodQuantity).toFixed(2);
+}
+
+function addToCart(cartDetails) {
+    fetch('http://localhost:3000/carts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(cartDetails)
+    }).then(r => {
+        if (r.ok) {
+            alert('Added to cart successfully.');
+        }
+        else {
+            alert('Failed to add to cart.');
+        }
+    });
+}
+
+function updateExistingCart(cartDetails) {
+    fetch('http://localhost:3000/carts').then(r => r.json()).then(data => {
+        data.forEach(d => {
+            if (d.productId == cartDetails.productId) {
+                if (cartDetails.quantity + d.quantity > totalQuantity) {
+                    alert('Amount Exceeeded');
+                    return;
+                }
+
+                cartDetails.quantity += d.quantity;
+                cartDetails.total = parseFloat((cartDetails.quantity * actualPrice).toFixed(2));
+
+                fetch('http://localhost:3000/carts/' + d.id, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(cartDetails)
+                }).then(r => {
+                    if (r.ok) {
+                        alert('Added to existing cart successfully.');
+                        return;
+                    }
+                    else {
+                        alert('Failed to add to cart.');
+                    }
+                });
+            }
+        });
+    });
 }

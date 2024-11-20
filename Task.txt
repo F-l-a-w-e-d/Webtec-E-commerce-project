@@ -8,4 +8,6 @@ Admin:
 
 Customer:
     - Add to cart:
-        * If item existed on cart and want to add again, it will add on existing cart.
+        * If item existed on cart and want to add again, it will add on existing cart. #
+    - Product Details:
+        * proper reponsive sold out image.

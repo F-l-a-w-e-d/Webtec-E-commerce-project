@@ -10,13 +10,34 @@
     <title>Product Details</title>
 </head>
 <body>
+    <div class="bg-dark">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+            <span class="fs-4">Simple header</span>
+          </a>
+    
+          <ul class="nav nav-pills">
+            <li class="nav-item"><a href="/Content/Pages/Customer/homepage.html" class="nav-link" aria-current="page">Home</a></li>
+            <li class="nav-item"><a href="/Content/Pages/Customer/ProductList.html" class="nav-link active">Products</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+          </ul>
+
+          <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+            cart
+          </a>
+        </header>
+   </div>
+
     <div class="container">
         <div id="product_detail">
             <div class="container my-5 card p-5">
                 <div class="row">
                     <input type="hidden" id="prodId">
                     <div class="col-md-6">
-                        <img id="image" class="img-fluid rounded">
+                        <div class="sold-image-detail img-sold"></div>
+                        <img id="image" class="rounded img-fluid">
                     </div>
                     <div class="col-md-6">
                         <h2 class="display-4" id="name"></h2>
@@ -30,14 +51,16 @@
                             <p id="sold"><strong>Sold:</strong></p>
                         </div>
 
-                        <p class="text-muted">Quantity:</p>
-                        <div class="quantity-section input-group">
-                            <button class="btn btn-secondary" id="subQty">-</button>
-                            <input class="form-control col-lg-3 text-center" value="1" type="text" id="prodQty">
-                            <button class="btn btn-secondary" id="addQty">+</button>
+                        <div id="quantitySection">
+                            <p class="text-muted">Quantity:</p>
+                             <div class="quantity-section input-group">
+                                 <button class="btn btn-secondary" id="subQty">-</button>
+                                 <input class="form-control col-lg-3 text-center" value="1" type="text" id="prodQty">
+                                 <button class="btn btn-secondary" id="addQty">+</button>
+                             </div>
+                            <h5 class="pt-3" >Total: <strong id="total"></strong></h5>
                         </div>
-                        <h5 class="pt-3" >Total: <strong id="total"></strong></h5>
-        
+
                         <button class="btn btn-success btn-lg mt-3" id="addCart">Add to Cart</button>
                     </div>
                 </div>
