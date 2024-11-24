@@ -96,6 +96,11 @@ $(function() {
         }
 
         $(this).val($(this).val().replace(/[^0-9]/g, ''));
+
+        if ($(this).val() == "") {
+            $(this).val(1);
+        }
+
         prodQuantity = parseInt($(this).val());
         $("#total").text(calcTotal());
     });

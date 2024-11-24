@@ -21,7 +21,7 @@
       "rarity": "Uncommon",
       "category": "Sniper Rifle",
       "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_asimov_light_large.32d9045f8a2bcd13ca18390cc9fd82026e7195ab.png",
-      "quantity": 1,
+      "quantity": 2,
       "sold": 0,
       "discountedPrice": 189.71,
       "id": "cd9c"
@@ -117,6 +117,13 @@
       "quantity": 4,
       "total": 159.96,
       "id": "332e"
+    },
+    {
+      "id": "5288",
+      "productId": "27ba",
+      "quantity": 1,
+      "total": 0.8
     }
-  ]
+  ],
+  "checkout": []
 }
