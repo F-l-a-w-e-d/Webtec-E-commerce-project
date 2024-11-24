@@ -63,10 +63,10 @@
 }
 
 .sold-image {
-    top: -25px;
+    top: -35px;
     left: 5px;
     width: 100%;
-    height: 120%;
+    height: 150%;
 }
 
 .img-sold {
@@ -80,7 +80,7 @@
 .sold-image-detail {
     top: 30px;
     left: 5px;
-    width: 100%;
+    width: 50%;
     height: 80%;
 }
 
@@ -110,11 +110,18 @@
 @media (max-width: 765px) {
     .sold-image {
         position: absolute;
-        top: -30px;
+        top: -35px;
         left: 90px;
         background-image: url('/Content/images/Customer/sold-out.png');
         background-size: cover;
         width: 60%;
-        height: 150px;
+        height: 160px;
+    }
+
+    .sold-image-detail {
+        top: 30px;
+        left: 10px;
+        width: 100%;
+        height: 40%;
     }
 }
