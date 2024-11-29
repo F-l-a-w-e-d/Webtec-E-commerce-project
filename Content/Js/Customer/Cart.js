@@ -1,4 +1,5 @@
 $(function() {
+    // Loads product in carts and gets additional info from product in json-server
     fetch('http://localhost:3000/carts').then(r => r.json()).then(data => {
         data.forEach(c => {
             fetch('http://localhost:3000/products').then(r => r.json()).then(prod => {
@@ -9,19 +10,22 @@ $(function() {
         
                     let image = d.image != "" ? d.image : "/Content/images/Admin/placeholder.png";
         
+                    // adds to the page
                     $('.main-container').append(`
                         <div class="d-flex justify-content-center">
-
                          <input type="hidden" value="${d.quantity}" id="maxQty-${c.id}">
                          <input type="hidden" value="${c.id}" id="id-${c.id}">
                             <div class="container my-3 card p-5">
                                 <div class="row">
-                                    
                                     <div class="col-md-6">
-                                        <img id="image" src="${image}" class="rounded img-fluid">
+                                        <img id="image-${c.id}" src="${image}" class="rounded img-fluid">
                                     </div>
                                     
                                     <div class="col-md-6">
+                                        <div class="text-end">
+                                        <button class="btn btn-danger" id="del-${c.id}">X</button>
+                                        </div>
+
                                         <h2 class="display-4">${d.name}</h2>
                     
                                         <div id="quantitySection">
@@ -44,14 +48,28 @@ $(function() {
                         </div>
                     `);
 
+                    // delete from cart
+                    $("#del-" + c.id).click(function() {
+                        if (confirm("Are you sure you want to delete this item?")) {
+                            fetch("http://localhost:3000/carts/" + c.id, {
+                                method: "DELETE",
+                            }).then(() => alert("Data deleted successfully."))
+                            .catch(e => alert("Error: " + e));
+                        }
+                    });
+
+                    // check item for checkout
                     $("#chk-" + c.id).change(function() {
                         if ($(this).prop('checked')) {
                             let checkOut = {
                                 id: c.id,
+                                productId: c.productId,
                                 name: d.name,
                                 quantity: parseInt($("#prodQty-"+ c.id).val()),
-                                image: $("#image").attr('src'),
-                                price: d.discountedPrice,
+                                image: $("#image-" + c.id).attr('src'),
+                                price: d.price,
+                                discountedPrice: d.discountedPrice,
+                                discount: d.discount,
                                 total: d.discountedPrice * parseInt($("#prodQty-"+ c.id).val())
                             }
 
@@ -61,6 +79,7 @@ $(function() {
                             checkoutItems = checkoutItems.filter(chk => chk.id !== c.id);
                         }
 
+                        // checks if the all carts is checked.
                         if (!selectedAllChk) {
                             let allChecked = true;
                             $("input[type='checkbox']").not("#chkSelectAll").each(function(i, check) {
@@ -74,6 +93,7 @@ $(function() {
                         updateCheckout(c.id, d.discountedPrice);
                     });
 
+                    // Quantity restriction checking
                     $("#prodQty-" + c.id).on('input', function () { 
                         if ($(this).val() == 0) {
                             $(this).val(1);
@@ -88,12 +108,14 @@ $(function() {
                         updateCheckout(c.id, d.discountedPrice);
                     });
                 
+                    // Quantity restriction checking
                     $("#prodQty-" + c.id).change(function() {
                         if ($(this).val() > $("#maxQty-" + c.id).val()) {
                             $(this).trigger('input');
                         }
                     });
                 
+                    // Quantity restriction checking
                     $("#subQty-" + c.id).click(function() {
                         if ($("#prodQty-" + c.id).val() != 1) {
                             $("#prodQty-" + c.id).val($("#prodQty-" + c.id).val() - 1);
@@ -101,6 +123,7 @@ $(function() {
                         }
                     });
                 
+                    // Quantity restriction checking
                     $("#addQty-" + c.id).click(function() {
                         if ($("#prodQty-" + c.id).val() < $("#maxQty-" + c.id).val()) {
                             $("#prodQty-" + c.id).val(parseInt($("#prodQty-" + c.id).val()) + 1);
@@ -114,13 +137,40 @@ $(function() {
         });
     });
 
+    // proceeding to checkout
     $("#btncheckOut").click(function() {
         if (checkoutItems.length == 0) {
             alert('Please select an item to check out.');
             return;
         }
+
+        // Deletes existing data from checkout in case user cancels the checkout
+        fetch('http://localhost:3000/checkout').then(r => r.json()).then(data => {
+            data.forEach(d => {
+                fetch('http://localhost:3000/checkout/' + d.id, {
+                    method: 'DELETE',
+                });
+            });
+        }).then(s => {
+            // adds to checkout from json-server
+            checkoutItems.forEach(item => {
+                fetch('http://localhost:3000/checkout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(item), // Send each object individually
+                }).then(response => {
+                    if (!response.ok) {
+                        console.error(`Failed to add item: ${item.id}`);
+                    }
+                });
+            });
+            window.location.href = "/Content/Pages/Customer/Checkout.html";
+        });
     });
 
+    // selects all cart items
     $("#chkSelectAll").change(function() {
         $("input[type='checkbox']").not("#chkSelectAll").each(function(i, check) {
             selectedAllChk = true;
@@ -139,6 +189,7 @@ $(function() {
     });
 });
 
+// updates the checkout for updated quantities or checked items
 function updateCheckout(id, discountedPrice) {
     checkoutItems.forEach(i => {
         if (id == i.id) {

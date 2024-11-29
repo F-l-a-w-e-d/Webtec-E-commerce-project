@@ -1,4 +1,5 @@
 $(function () {
+    // gets the certain id of the product for update
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
 
@@ -21,6 +22,7 @@ $(function () {
         e.preventDefault();
         $("#errorMessage").html("");
 
+        // get the data for updating the product
         let isError = false;
         let product = {
             name: $("#name").val().trim(),
@@ -35,6 +37,7 @@ $(function () {
             discountedPrice: null
         };
 
+        // restrictions
         if (product.name === "") {
             $("#errorMessage").append("<p>Please provide a name.</p>");
             isError = true;
@@ -67,11 +70,13 @@ $(function () {
         });
     });
 
+    // cancels and goes back
     $("#cancelBtn").click(function() {
         window.location.href = "/Content/Pages/Admin/ProductList.html"
     });
 });
 
+// updates existing product to json-server
 function Update(product, id) {
     fetch('http://localhost:3000/products/' + id, {
         method: 'PUT',

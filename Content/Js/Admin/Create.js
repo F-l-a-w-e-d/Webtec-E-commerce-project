@@ -1,9 +1,11 @@
 $(function () {
+    // submit function
     $("#addProduct").submit(function(e) {
         e.preventDefault();
         $("#errorMessage").html("");
 
         let isError = false;
+        // put all the details into an object
         let product = {
             name: $("#name").val().trim(),
             description: $("#description").val().trim(),
@@ -17,6 +19,7 @@ $(function () {
             discountedPrice: null
         };
 
+        // Restrictions
         if (product.name === "") {
             $("#errorMessage").append("<p>Please provide a name.</p>");
             isError = true;
@@ -32,29 +35,32 @@ $(function () {
             isError = true;
         }
 
+        // Image url restriction
         isValidImageUrl(product.image, function(isValid) {
             if (!isValid && product.image != "") {
                 $("#errorMessage").append("<p>Invalid image link.</p>");
                 isError = true;
             }
 
-            if (isError) {
+            if (isError) { // If there are some errors
                 $("#errorMessage").removeClass("d-none");
                 return;
             }
-            else {  
+            else {  // Creates the product
                 product.discountedPrice = product.discount != null ? parseFloat((product.price - (product.price * product.discount)).toFixed(2)) : null;
                 Create(product);
             }
         });
     });
 
+    // GO back
     $("#backBtn").click(function() {
         window.location.href = "/Content/Pages/Admin/ProductList.html"
     });
 });
 
 function Create(product) {
+    // puts the product into json server
     fetch('http://localhost:3000/products', {
         method: 'POST',
         headers: {
@@ -72,6 +78,7 @@ function Create(product) {
       }).catch(e => alert(e));
 }
 
+// image restriction
 function isValidImageUrl(url, callback) {
     const img = new Image();
     img.onload = function() {

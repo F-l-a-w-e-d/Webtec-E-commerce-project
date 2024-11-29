@@ -7,3 +7,53 @@
     height: 100%;
     object-fit: cover;
 }
+
+.carousel-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: 1; 
+}
+
+.preview {
+    z-index: 5;
+}
+
+.product-img {
+    position: absolute;
+    bottom: 28%; 
+    left: 50%;
+    transform: translateX(-50%);
+    max-height: 280px;
+    height: 120%;
+    object-fit: cover;
+    z-index: 2; 
+    border-radius: 10px; 
+    cursor: pointer;
+}
+
+.carousel {
+    height: 670px; /* Set the height to 500px */
+}
+
+.carousel-item {
+    height: 100%; /* Make the carousel items fill the carousel height */
+}
+
+@media (max-width: 765px) {
+    .product-img {
+        position: absolute;
+        bottom: 40%; 
+        left: 50%;
+        transform: translateX(-50%);
+        max-height: fit-content;
+        max-width: 60%;
+        object-fit: cover;
+        z-index: 2; 
+        border-radius: 10px; 
+    }
+}
