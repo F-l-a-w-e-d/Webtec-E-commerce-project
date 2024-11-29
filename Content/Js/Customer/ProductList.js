@@ -1,6 +1,7 @@
 $(function () {
     LoadProducts();
 
+    // Filter functions
     $("#btnSearch").click(function() {
         $("#product-list-container").html("");
         LoadProducts($("#search").val(), $("#rarity").val(), $("#category").val());
@@ -22,6 +23,7 @@ $(function () {
     })
 });
 
+// Loads products based on filters.
 function LoadProducts(search = "", rarity = "", category = "") {
     fetch("http://localhost:3000/products").then(response => response.json()).then(data => {
         let infoHtml = data.length == 0 ? "No products found." : "List of product(s)";
@@ -62,6 +64,7 @@ function LoadProducts(search = "", rarity = "", category = "") {
                 </div>
             `);
 
+            // View details of the product.
             $("#view-" + id).click(function () {
                 window.location.href = "ViewProduct.html?id=" + d.id;
             });

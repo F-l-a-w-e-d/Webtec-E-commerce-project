@@ -1,3 +1,4 @@
+// get the product id of that certain item.
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 
@@ -9,9 +10,10 @@ let totalQuantity = 0;
 $(function() {
     let products = [];
 
+    // get the data from json-server
     fetch("http://localhost:3000/products").then(response => response.json()).then(data => {
         data.forEach(d => {
-            if (d.id == id) {
+            if (d.id == id) { // If it matches --> It is the certain product for details.
                 let image = d.image != "" ? d.image : "/Content/images/Admin/placeholder.png";
 
                 let priceHtml = `${d.discountedPrice || d.price}`;
@@ -40,11 +42,12 @@ $(function() {
                 $("#total").text("$" + actualPrice);
                 $("title").text(d.name + " Details");
             }
-            else {
+            else { // For displaying products below.
                 products.push(d);
             }
         });
 
+        // checks if that product exists on the cart.
         fetch("http://localhost:3000/carts").then(r => r.json()).then(data => {
            for (let i of data) {
                 if (i.productId == $("#prodId").val()) {
@@ -53,6 +56,7 @@ $(function() {
             }
         });
 
+        // Displays some products below.
         products.forEach(d => {
             let priceHtml = `<span class="price-tag">$${d["discountedPrice"] || d["price"]}</span> `;
             priceHtml += d["discount"] != null ? `<span style="color:red; font-size:17px;"><del>$${d["price"]}</del></span>` : "";
@@ -80,12 +84,14 @@ $(function() {
                 </div>
             `);
 
+            // View details of that product.
             $("#view-" + id).click(function () {
                 window.location.href = "ViewProduct.html?id=" + d.id;
             });
         })
     });
 
+    // Quantity restrictions
     $("#prodQty").on('input', function () { 
         if ($(this).val() == 0) {
             prodQuantity = 1;
@@ -105,6 +111,7 @@ $(function() {
         $("#total").text(calcTotal());
     });
 
+     // Quantity restrictions
     $("#prodQty").change(function() {
         if (prodQuantity > totalQuantity) {
             $(this).val(0);
@@ -112,6 +119,7 @@ $(function() {
         }
     });
 
+     // Quantity restrictions - minus
     $("#subQty").click(function() {
         if (prodQuantity != 1) {
             prodQuantity--;
@@ -120,6 +128,7 @@ $(function() {
         }
     });
 
+     // Quantity restrictions - add
     $("#addQty").click(function() {
         if (prodQuantity < totalQuantity) {
             prodQuantity++;
@@ -128,6 +137,7 @@ $(function() {
         }
     });
 
+    // Adds the product to cart
     $("#addCart").click(function() {
         let cartDetails = {
             productId: $("#prodId").val(),
@@ -144,10 +154,12 @@ $(function() {
     });
 })
 
+// calculate total value.
 function calcTotal() {
     return "$" + (actualPrice * prodQuantity).toFixed(2);
 }
 
+// adds product to cart
 function addToCart(cartDetails) {
     fetch('http://localhost:3000/carts', {
         method: 'POST',
@@ -165,6 +177,7 @@ function addToCart(cartDetails) {
     });
 }
 
+// adds product to existing cart of that certain product
 function updateExistingCart(cartDetails) {
     fetch('http://localhost:3000/carts').then(r => r.json()).then(data => {
         data.forEach(d => {

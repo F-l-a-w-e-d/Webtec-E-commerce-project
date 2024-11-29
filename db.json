@@ -8,8 +8,8 @@
       "rarity": "Common",
       "category": "Pistol",
       "image": "https://steamcommunity-a.akamaihd.net/economy/image/-9a81dlWLwJ2UUGcVs_nsVtzdOEdtWwKGZZLQHTxDZ7I56KU0Zwwo4NUX4oFJZEHLbXH5ApeO4YmlhxYQknCRvCo04DEVlxkKgposbaqKAxf1P_HcjZ979S5mZCOhcj4OrzZgiVTucMhi7_F9Nul0Qy3_BFuMjzzdo_AdAA7YV3Y-1C3yOi8gJG8vpTK1zI97XhoCFF2/512fx384f",
-      "quantity": 4,
-      "sold": 2,
+      "quantity": 0,
+      "sold": 6,
       "discountedPrice": 39.99,
       "id": "fc9c"
     },
@@ -22,7 +22,7 @@
       "category": "Sniper Rifle",
       "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_asimov_light_large.32d9045f8a2bcd13ca18390cc9fd82026e7195ab.png",
       "quantity": 2,
-      "sold": 0,
+      "sold": 7,
       "discountedPrice": 189.71,
       "id": "cd9c"
     },
@@ -34,7 +34,7 @@
       "rarity": "Immortal",
       "category": "Shotgun",
       "image": "https://stash.clash.gg/storage/img/skin_sideview/s508.png?id=9a99922d1c40b59a43cdfd814824e986",
-      "quantity": 0,
+      "quantity": 10,
       "sold": 0,
       "discountedPrice": 134.99,
       "id": "afd5"
@@ -99,31 +99,48 @@
       "rarity": "Ancient",
       "category": "Pistol",
       "image": "https://stash.clash.gg/storage/img/skin_sideview/s1052.png?id=ef5b493b2684258c74e10eabe1b9f5af",
-      "quantity": 2,
-      "sold": 0,
+      "quantity": 0,
+      "sold": 2,
       "discountedPrice": 0.8,
       "id": "27ba"
     }
   ],
   "carts": [
     {
-      "productId": "cd9c",
+      "id": "ebab",
+      "productId": "afd5",
       "quantity": 2,
-      "total": 379.42,
-      "id": "b6db"
+      "total": 269.98
     },
     {
-      "productId": "fc9c",
-      "quantity": 4,
-      "total": 159.96,
-      "id": "332e"
-    },
-    {
-      "id": "5288",
-      "productId": "27ba",
+      "id": "c33f",
+      "productId": "cd9c",
       "quantity": 1,
-      "total": 0.8
+      "total": 189.71
     }
   ],
-  "checkout": []
+  "checkout": [
+    {
+      "id": "c33f",
+      "productId": "cd9c",
+      "name": "AWP",
+      "quantity": 2,
+      "image": "https://steamcdn-a.akamaihd.net/apps/730/icons/econ/default_generated/weapon_awp_cu_awp_asimov_light_large.32d9045f8a2bcd13ca18390cc9fd82026e7195ab.png",
+      "price": 199.69,
+      "discountedPrice": 189.71,
+      "discount": 0.05,
+      "total": 379.42
+    },
+    {
+      "id": "ebab",
+      "productId": "afd5",
+      "name": "XM1014",
+      "quantity": 2,
+      "image": "https://stash.clash.gg/storage/img/skin_sideview/s508.png?id=9a99922d1c40b59a43cdfd814824e986",
+      "price": 149.99,
+      "discountedPrice": 134.99,
+      "discount": 0.1,
+      "total": 269.98
+    }
+  ]
 }
