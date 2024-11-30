@@ -79,7 +79,7 @@ $(function() {
                                             <p>${priceHtml}</p>
                                             <p>x${d.quantity}</p>
 
-                                            <p>Total: $${d.total}<p>
+                                            <p>Total: $${d.total.toFixed(2)}<p>
                                     </div>
                                 </div>
                             </div>
