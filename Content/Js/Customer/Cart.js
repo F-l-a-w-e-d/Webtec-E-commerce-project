@@ -194,7 +194,7 @@ function updateCheckout(id, discountedPrice) {
     checkoutItems.forEach(i => {
         if (id == i.id) {
             i.quantity = parseInt($("#prodQty-"+ id).val());
-            i.total = discountedPrice * parseInt($("#prodQty-"+ id).val());
+            i.total = discountedPrice != null ? discountedPrice * parseInt($("#prodQty-"+ id).val()) : i.price * parseInt($("#prodQty-"+ id).val());
           return;
         }
     });
@@ -203,7 +203,6 @@ function updateCheckout(id, discountedPrice) {
     checkoutItems.forEach(t => total += t.total);
 
     $("#total").text('Total: $' + total.toFixed(2));
-    console.log(checkoutItems);
 }
 
 let checkoutItems = [];
